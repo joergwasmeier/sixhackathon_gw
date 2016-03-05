@@ -68,8 +68,9 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loaders: ['babel'],
-        include: path.join(__dirname, 'scripts')
-      }
+        exclude: /node_modules/
+      },
+      { test: /\.less$/, loader: 'style-loader!css-loader!less-loader', exclude: /node_modules/}
     ]
   }
 };

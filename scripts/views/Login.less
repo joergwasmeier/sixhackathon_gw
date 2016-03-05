@@ -1,0 +1,66 @@
+.loginCont{
+
+    .spinner {
+        animation: rotate 1s infinite;
+        color: #ffffff;
+        font-size: 30px;
+        width: 100%;
+        text-align: center;
+        margin-top: 16px;
+    }
+
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    >.loginBg{
+        background-color: #fefefe !important;
+        width: 305px!important;
+        padding: 23px;
+        margin-left: 16px;
+        padding-top: 0px;
+        margin-top: 140px;
+    }
+
+    >.loginButton{
+        position: absolute;
+        margin-top: 16px;
+        width:304px;
+        margin-left: 16px;
+        transition: opacity 0.2s linear;
+
+        &.hide{
+            opacity: 0;
+        }
+
+    }
+
+    >hr{
+        margin-top: 120px;
+        background-color: #ffffff;
+        height: 1px;
+        background-image: linear-gradient(to right, #0b97c4, #0db5eb, #0b97c4);
+        border: 0px;
+
+    }
+
+    >.sign{
+        font-family: "Roboto Slab";
+        color: #ffffff;
+        text-align: center;
+    }
+    >.signFb{
+        border: solid 1px #ffffff;
+        padding: 8px;
+        .sign;
+        margin: 16px;
+        margin-top: 20px;
+
+    }
+}

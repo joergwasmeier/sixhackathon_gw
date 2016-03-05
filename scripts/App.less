@@ -1,0 +1,121 @@
+.popupBg{
+  position: absolute;
+  width: 335px;
+  height: 584px;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 2800;
+
+  display: none;
+
+  &.show{
+    display: block;
+  }
+
+  >.popCont{
+    background-color: #ffffff;
+    width: 300px;
+    height: 300px;
+    top: 120px;
+    left: 18px;
+    position: absolute;
+
+    >h2{
+      padding-left: 16px;
+    }
+
+  }
+}
+
+.appContainer {
+  background-color: #0b97c4;
+  position: absolute;
+  width: 335px;
+  height: 584px;
+  top: 103px;
+  left: 228px;
+  overflow: scroll;
+}
+.menuButton{
+  position: absolute;
+  z-index: 1900;
+  top:16px;
+  left: 16px;
+  font-size: 20px;
+  color: white;
+  transition: all 0.2s;
+
+  cursor: pointer;
+  &.show{
+    color: #0b97c4;
+  }
+}
+
+.leftNav{
+  position: absolute !important;
+  background-color: #ffffff;
+  width: 250px;
+  height: 600px;
+  z-index: 1300;
+  top:0px;
+  left: -250px;
+
+  transition: all 0.2s;
+
+  &.show{
+    left: 0px;
+  }
+
+  >div{
+    &:first-child{
+      margin-top: 60px;
+    }
+  }
+}
+
+.footer{
+  position: absolute;
+  bottom: 0px;
+  color: #ffffff;
+  width: 100%;
+  text-align: center;
+  font-family: "Roboto Slab";
+
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.bg{
+  width: 800px;
+  position: absolute;
+  top:0px;
+  left: 0px;
+}
+
+.logoWhite{
+  width: 100px;
+  position: relative;
+  top:60px;
+  left: 120px;
+}
+
+.example-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+}
+
+.example-leave {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0;
+}

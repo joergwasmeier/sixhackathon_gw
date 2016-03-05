@@ -1,45 +1,73 @@
 import React, {Component} from 'react';
+import Login from './views/Login';
+
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
+import LeftNav from 'material-ui/lib/left-nav';
+import MenuItem from 'material-ui/lib/menus/menu-item';
+
 import RaisedButton from 'material-ui/lib/raised-button';
-import TextField from 'material-ui/lib/text-field';
-import Paper from 'material-ui/lib/paper';
 
 
-require("./style.less");
+require("./App.less");
+var classNames = require('classnames');
 
 export default class App extends Component {
-  render() {
-    return (
-      // Add your component markup and other subcomponent references here.
 
-        <div className="login">
-            <img src="./scripts/751790.jpg" className="bg" />
-            <div className="appContainer">
-                <h1>Group Wallet</h1>
+    constructor(){
+        super();
+        this.state = {
+            menu: false
+        };
+    }
 
-                <Paper className="loginBg" zDepth={1}>
-                    <TextField
-                        hintText="Username"
-                        floatingLabelText="Username"
+    showMenu(){
+        if (this.state.menu == true){
+            this.setState({menu:false});
+        } else {
+            this.setState({menu:true});
+        }
+    }
+
+    goTodashboard(e){
+        this.setState({menu:false});
+        window.location = '/#/dashboard'
+    }
+
+    render() {
+        var btnClass = classNames({
+            'leftNav': true,
+            'show': this.state.menu
+        });
+
+        var menuClass = classNames({
+            'menuButton': true,
+            'fa': true,
+            'fa-bars': true,
+            'show': this.state.menu
+        });
+
+        return (
+            <div>
+                <img src="/assets/751790.jpg" className="bg" />
+                <div className="appContainer">
+                    {this.props.children || <Login/>}
+
+                    <div className={btnClass}>
+                        <MenuItem
+                            onClick={(e) => this.goTodashboard(e)}>
+                            Dashboard
+                        </MenuItem>
+                    </div>
+
+                    <div
+                        className={menuClass}
+                        onClick={(e) => this.showMenu(e)}
                     />
-
-                    <TextField
-                        hintText="Password Field"
-                        floatingLabelText="Password"
-                        type="password"
-                    />
-                </Paper>
-
-
-                <RaisedButton label="Login" primary={true} className="loginButton" />
-
-                <hr />
-                <div className="sign" >or create a Account</div>
-
-
-                <div className="signFb" >or Signup with Facebook</div>
-
+                </div>
             </div>
-        </div>
-      );
-  }
+        );
+    }
+
+
 }

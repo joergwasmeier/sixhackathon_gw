@@ -34,6 +34,12 @@ export default class App extends Component {
         window.location = '/#/dashboard'
     }
 
+
+    goStoryMockUp(e){
+        this.setState({menu:false});
+        window.location = '/#/story-mock'
+    }
+
     render() {
         var btnClass = classNames({
             'leftNav': true,
@@ -57,6 +63,10 @@ export default class App extends Component {
                         <MenuItem
                             onClick={(e) => this.goTodashboard(e)}>
                             Dashboard
+                        </MenuItem>
+                        <MenuItem
+                            onClick={(e) => this.goStoryMockUp(e)}>
+                            Story Mock up
                         </MenuItem>
                     </div>
 

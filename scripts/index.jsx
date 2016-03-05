@@ -8,6 +8,7 @@ import RegAuth from './views/RegAuth';
 
 import Dashboard from './views/Dashboard';
 import CreateWallet from './views/CreateWallet';
+import StoryCheckOut from './views/StoryCheckOut';
 
 
 import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router'
@@ -28,7 +29,7 @@ render((
             <Route path="/regAuth" component={RegAuth}/>
             <Route path="/dashboard" component={Dashboard}/>
             <Route path="/create-wallet" component={CreateWallet}/>
-
+            <Route path="/story-mock" component={StoryCheckOut}/>
         </Route>
     </Router>
 ), document.getElementById('root'));

@@ -10,11 +10,13 @@ export default class SmsAuth extends Component {
     constructor(){
         super();
         this.state = {
-            smsCode: ''
+            smsCode: '',
+            errorMsg: ''
         };
     }
 
     authHandler(e){
+        this.setState({errorMsg:"Please provide the right SMS ("+Model.instance.smscode+")"});
         console.log(Model.instance.smscode);
         //window.location = '/#/regAuth'
     }
@@ -33,6 +35,7 @@ export default class SmsAuth extends Component {
                     floatingLabelText="SMS Token"
                     value={this.state.phonenumber}
                     onChange={(e) => this.changeHandler(e)}
+                    errorText={this.state.errorMsg}
                 />
 
             </Paper>

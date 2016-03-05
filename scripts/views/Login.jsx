@@ -14,7 +14,7 @@ export default class Login extends Component {
     constructor(){
         super();
         this.state = {
-            phonenumber: '',
+            phonenumber: '+412345678',
             showSpinner: false
         };
     }
@@ -29,7 +29,7 @@ export default class Login extends Component {
        setTimeout(()=>{
            var xmlhttp = new XMLHttpRequest();
 
-           xmlhttp.onreadystatechange = function() {
+           xmlhttp.onreadystatechange = () => {
                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                    var myArr = JSON.parse(xmlhttp.responseText);
                    console.log(myArr);
@@ -38,10 +38,14 @@ export default class Login extends Component {
 
                    //new Model.smsCode = myArr.smscode;
                    window.location = '/#/smsAuth';
+               } else {
+                   this.setState({'showSpinner': false});
+
+                   this.setState({'hide': false});
                }
            };
-           
-           xmlhttp.open("GET", "http://team05.eu-gb.mybluemix.net/signup/+412345678", true);
+
+           xmlhttp.open("GET", "http://team05.eu-gb.mybluemix.net/signup/"+this.state.phonenumber, true);
            xmlhttp.send();
        },500);
 

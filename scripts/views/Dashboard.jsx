@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import Paper from 'material-ui/lib/paper';
 import FlatButton from 'material-ui/lib/flat-button';
 
-import AppBar from 'material-ui/lib/app-bar';
-
 
 require("./Dashboard.less");
 export default class Dashboard extends Component {

@@ -11,6 +11,7 @@ import FloatingActionButton from 'material-ui/lib/floating-action-button';
 import ContentAdd from 'material-ui/lib/svg-icons/content/add';
 import RaisedButton from 'material-ui/lib/raised-button';
 import Dialog from 'material-ui/lib/dialog';
+import Model from './../model/Model';
 
 var classNames = require('classnames');
 
@@ -23,12 +24,22 @@ export default class CreateWallet extends Component {
         this.state = {
             walletName: '',
             popup: false,
-            viewst:false
+            viewst:false,
+
         };
     }
 
     changeHandler(e){
         this.setState({'walletName': e.target.value});
+    }
+
+    save(e){
+        Model.instance.groupWallets.push({
+            name:this.state.walletName,
+            amount:0,
+            actions:[]
+        });
+        window.location = '/#/dashboard'
     }
 
     createWallet(e){
@@ -48,18 +59,30 @@ export default class CreateWallet extends Component {
 
     renderFriends(e){
         if (!this.state.viewst){
-            return <div/>
+            return (
+                <div className="friendList">
+                    <div className="rounded">
+                        <img src="assets/friend3.jpg"  />
+                    </div>
+
+                </div>
+            )
+
         } else {
             return (
                 <div className="friendList">
                     <div className="rounded">
-                        <img src="assets/friend1.jpg"  />
+                        <img src="assets/friend3.jpg"  />
                     </div>
+
                     <div className="rounded">
                         <img src="assets/friend1.jpg"  />
                     </div>
                     <div className="rounded">
-                        <img src="assets/friend1.jpg"  />
+                        <img src="assets/friend2.jpg"  />
+                    </div>
+                    <div className="rounded">
+                        <img src="assets/friend4.jpg"  />
                     </div>
                 </div>
             )
@@ -97,7 +120,7 @@ export default class CreateWallet extends Component {
 
                     <div className={popClass}>
                         <Paper zDepth={1} className="popCont">
-                            <h2>Choose your </h2>
+                            <h2>Add your Friends </h2>
 
                             <div>
                                 <div className="friendItem">
@@ -109,20 +132,20 @@ export default class CreateWallet extends Component {
 
                                 <div className="friendItem">
                                     <div className="rpop">
-                                        <img src="assets/friend1.jpg"  />
+                                        <img src="assets/friend2.jpg"  />
                                     </div>
-                                    <p>Daria Stepanova</p>
+                                    <p>Anton Dimitijev</p>
                                 </div>
 
                                 <div className="friendItem">
                                     <div className="rpop">
-                                        <img src="assets/friend1.jpg"  />
+                                        <img src="assets/friend4.jpg"  />
                                     </div>
-                                    <p>Daria Stepanova</p>
+                                    <p>Jörg Wasmeier</p>
                                 </div>
                             </div>
 
-                            <RaisedButton className="addFriends" onClick={(e) => {this.closeFriend(e)}}
+                            <RaisedButton className="addFriendsButton" onClick={(e) => {this.closeFriend(e)}}
                                           label="Add Friends" primary={true}></RaisedButton>
                         </Paper>
 

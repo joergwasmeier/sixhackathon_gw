@@ -27,13 +27,10 @@ export default class RegAuth extends Component {
         <div className="regCont">
             <img src="/assets/logoWhite.png" className="logoWhite" />
 
-            <FacebookLogin
-                appId="1516087845363705"
-                autoLoad={true}
-                callback={(e) => this.responseFacebook(e)}
-                cssClass="facebookButtonClass"
-                icon="fa-facebook"
-            />
+            <Paper className="createBg" zDepth={1} onClick={(e) => this.authHandler(e)}>
+                <p className="fa fa-facebook"></p>
+                <p className="createBtn">Login with Facebook</p>
+            </Paper>
 
             <p className="whor">or enter your data</p>
 

@@ -8,6 +8,7 @@ class Model {
 
     loggedIn = false;
     smsCode = 0;
+    groupWallets = [];
 
     /**
      * @param enforcer

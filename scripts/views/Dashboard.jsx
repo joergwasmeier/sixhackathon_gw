@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Paper from 'material-ui/lib/paper';
 import FlatButton from 'material-ui/lib/flat-button';
 
+import Model from './../model/Model';
 
 require("./Dashboard.less");
 export default class Dashboard extends Component {
@@ -16,6 +17,11 @@ export default class Dashboard extends Component {
 
     createWallet(e){
         window.location = '/#/create-wallet';
+    }
+
+    creditCard(e){
+        window.location = '/#/credit-card';
+
     }
 
     responseFacebook (response){
@@ -36,31 +42,44 @@ export default class Dashboard extends Component {
         });
     }
 
+    openWallet(idx) {
+        window.location = '/#/wal/'+idx;
+    }
+
+    renderWallets(){
+        if(Model.instance.groupWallets.length == 0){
+            return <p className="infoMsg">Hi there, you don´ have actually a GroupWallet.</p>
+        } else {
+            return <div>
+                {
+                    Model.instance.groupWallets.map((item, idx) => {
+                        return <Paper className="wlletBg" zDepth={1} onClick={(e) => this.openWallet(idx)}>
+                                <p className="createBtn">{item.amount.toFixed(2)} CHF</p>
+                                <p className="createBtn">{item.name}</p>
+                            </Paper>;
+                    })
+                }
+            </div>
+        }
+    }
+
     render() {
         return (
             <div className="dashboard">
 
                 <img src="/assets/logoWhite.png" className="logoWhite" />
 
-                <p className="infoMsg">Hi there, you don´ have actually a GroupWallet.</p>
+                {this.renderWallets()}
 
                 <Paper className="createBg" zDepth={1} onClick={(e) => this.createWallet(e)}>
                     <p className="fa fa-plus"></p>
                     <p className="createBtn">Create Group Wallet</p>
                 </Paper>
 
-                <Paper className="createBg" zDepth={1} onClick={(e) => this.createWallet(e)}>
+                <Paper className="createBg" zDepth={1} onClick={(e) => this.creditCard(e)}>
                     <p className="fa fa-money"></p>
-                    <p className="createBtn">Pay</p>
+                    <p className="createBtn">Add CreditCard</p>
                 </Paper>
-
-                <Paper className="createBg" zDepth={1} onClick={(e) => this.createWallet(e)}>
-                    <p className="fa fa-reply"></p>
-                    <p className="createBtn">Request Payment</p>
-                </Paper>
-
-
-
 
             </div>
         );
@@ -69,6 +88,12 @@ export default class Dashboard extends Component {
 
 
 /*
+
+ <Paper className="createBg" zDepth={1} onClick={(e) => this.createWallet(e)}>
+ <p className="fa fa-reply"></p>
+ <p className="createBtn">Request Payment</p>
+ </Paper>
+
  <Paper className="createBg" zDepth={1} onClick={(e) => this.connectToFacebook(e)}>
  <p className="fa fa-facebook"></p>
  <p className="createBtn">Connect to your Friends</p>

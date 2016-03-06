@@ -47,6 +47,7 @@
     "eslint-plugin-react": "^2.3.0",
     "less": "^2.6.1",
     "less-loader": "^2.2.2",
+    "react-intl": "^1.2.2",
     "react-transform-hmr": "^1.0.1",
     "style-loader": "^0.13.0",
     "webpack": "^1.8.4",

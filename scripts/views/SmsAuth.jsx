@@ -16,9 +16,14 @@ export default class SmsAuth extends Component {
     }
 
     authHandler(e){
-        this.setState({errorMsg:"Please provide the right SMS ("+Model.instance.smscode+")"});
-        console.log(Model.instance.smscode);
-        //window.location = '/#/regAuth'
+        console.log(this.state.smsCode);
+        window.location = '/#/regAuth'
+
+        if (this.state.smsCode == Model.instance.smscode){
+//            window.location = '/#/regAuth'
+        } else {
+  //          this.setState({errorMsg:"Please provide the right SMS ("+Model.instance.smscode+")"});
+        }
     }
 
     changeHandler(e){

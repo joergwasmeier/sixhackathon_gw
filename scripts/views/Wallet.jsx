@@ -164,7 +164,7 @@ export default class Wallet extends Component {
         return (
             <div className={popClass}>
                 <Paper zDepth={1} className="popCont">
-                    <h2>How much you want to Charge?</h2>
+                    <h2>How much you want to Charge from your CreditCard?</h2>
 
                     <TextField
                         hintText="Amount (CHF)"

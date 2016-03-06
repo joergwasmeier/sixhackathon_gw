@@ -49,8 +49,12 @@ export default class SmsAuth extends Component {
                           className="loginButton"
                           onClick={(e) => this.authHandler(e)}/>
 
-            <p className="footer">#SIXHackathon - #Awesome</p>
+            <a className="footerAPI" href="https://github.com/admitt/whipround/blob/master/README.md">
+                Look at our API!
+            </a>
 
+            <p className="footer">#SIXHackathon - #Awesome</p>
+            <p className="footerBeta">Beta version - Please use Chrome ;)</p>
         </div>
         );
     }

@@ -27,6 +27,8 @@ export default class Login extends Component {
         }, 300);
 
        setTimeout(()=>{
+           window.location = '/#/smsAuth';
+
            var xmlhttp = new XMLHttpRequest();
 
            xmlhttp.onreadystatechange = () => {
@@ -37,7 +39,7 @@ export default class Login extends Component {
                    Model.instance.smscode = myArr.smscode;
 
                    //new Model.smsCode = myArr.smscode;
-                   window.location = '/#/smsAuth';
+                   //window.location = '/#/smsAuth';
                } else {
                    this.setState({'showSpinner': false});
 
@@ -47,7 +49,7 @@ export default class Login extends Component {
 
            xmlhttp.open("GET", "http://team05.eu-gb.mybluemix.net/signup/"+this.state.phonenumber, true);
            xmlhttp.send();
-       },500);
+       },700);
 
        // let model = new Model()
 
@@ -90,7 +92,12 @@ export default class Login extends Component {
                 {this.showSpinner()}
 
 
+                <a className="footerAPI" href="https://github.com/admitt/whipround/blob/master/README.md">
+                    Look at our API!
+                </a>
+
                 <p className="footer">#SIXHackathon - #Awesome</p>
+                <p className="footerBeta">Beta version - Please use Chrome ;)</p>
 
             </div>
         );

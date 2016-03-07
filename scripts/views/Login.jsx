@@ -27,7 +27,7 @@ export default class Login extends Component {
         }, 300);
 
        setTimeout(()=>{
-           window.location = '/#/smsAuth';
+          // window.location = '/#/smsAuth';
 
            var xmlhttp = new XMLHttpRequest();
 
@@ -37,9 +37,7 @@ export default class Login extends Component {
                    console.log(myArr);
 
                    Model.instance.smscode = myArr.smscode;
-
-                   //new Model.smsCode = myArr.smscode;
-                   //window.location = '/#/smsAuth';
+                   window.location = '/#/smsAuth';
                } else {
                    this.setState({'showSpinner': false});
 
@@ -51,7 +49,6 @@ export default class Login extends Component {
            xmlhttp.send();
        },700);
 
-       // let model = new Model()
 
     }
 
@@ -72,8 +69,6 @@ export default class Login extends Component {
                                  className={btnClass}
                                  onClick={(e) => this.loginHandler(e)}/>
         }
-
-
     }
 
     render() {

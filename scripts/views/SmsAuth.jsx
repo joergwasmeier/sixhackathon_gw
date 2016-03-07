@@ -16,13 +16,21 @@ export default class SmsAuth extends Component {
     }
 
     authHandler(e){
-        console.log(this.state.smsCode);
-        window.location = '/#/regAuth'
+        //console.log(this.state.smsCode);
+        //window.location = '/#/regAuth'
 
         if (this.state.smsCode == Model.instance.smscode){
-//            window.location = '/#/regAuth'
+            var xmlhttp = new XMLHttpRequest();
+
+            xmlhttp.onreadystatechange = (e) => {
+                var json = JSON.parse(xmlhttp.responseText);
+            };
+
+            xmlhttp.open("POST", "http://team05.eu-gb.mybluemix.net/login/"+this.state.smsCode, true);
+            xmlhttp.send();
+
         } else {
-  //          this.setState({errorMsg:"Please provide the right SMS ("+Model.instance.smscode+")"});
+            this.setState({errorMsg:"Please provide the right SMS ("+Model.instance.smscode+")"});
         }
     }
 
@@ -36,7 +44,6 @@ export default class SmsAuth extends Component {
             <img src="/assets/logoWhite.png" className="logoWhite" />
             <Paper className="loginBg" zDepth={1}>
                 <TextField
-                    hintText="SMS Token"
                     floatingLabelText="SMS Token"
                     value={this.state.phonenumber}
                     onChange={(e) => this.changeHandler(e)}

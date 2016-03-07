@@ -1,6 +1,6 @@
-# WhipRound
+# WhipRound @SIXHackathon
 
-Teh Future auf group payment
+The Future auf group payment
 
 ### Usage
 
